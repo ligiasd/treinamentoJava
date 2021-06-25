@@ -51,13 +51,16 @@ public class Produto {
         this.validade = validade;
     }
 
-
-
-
-
-
     //ações
     public void definirNome(String novoNome){
         this.nome = novoNome;
+    }
+
+    public void definirPreco(float novoPreco){
+        this.preco = novoPreco;
+    }
+
+    public float obterPreco(){
+        return this.preco;
     }
 }
