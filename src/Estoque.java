@@ -1,7 +1,9 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Estoque {
-    private List<Produto> listaEstoque;
+    //atributos
+    private List<Produto> listaEstoque = new ArrayList<>();
 
     //ações
 
@@ -13,11 +15,13 @@ public class Estoque {
     public void acrescertarProduto(Produto produto){
         //acrescentar produto no estoque
         listaEstoque.add(produto);
-
     }
 
-    public void retirarProduto(Produto produto){
-        listaEstoque.remove(produto);
+    public void retirarProduto(Produto produto, int quantidade){
+        for (int i = 0; i <= quantidade; i++) {
+            listaEstoque.remove(produto);
+        }
+
 
     }
 
