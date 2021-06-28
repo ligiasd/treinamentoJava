@@ -44,10 +44,12 @@ public class Caixa {
 
 
         System.out.println("-----------------");
-        System.out.println("Total de produtos " + listaDeVendas.size());
+        System.out.println("Total de produtos comprados" + listaDeVendas.size());
         System.out.println("Total vendas R$:" + precoTotal);
         System.out.println("");
         System.out.println("");
+        System.out.println();
+
         System.out.println();
 
         System.out.println("*****************************");
