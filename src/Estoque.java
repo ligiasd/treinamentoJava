@@ -91,9 +91,13 @@ public class Estoque {
         }catch (Exception msg){
 
             System.out.println(msg.getMessage());      } //mensagem atraves do exception
-
     }
 
+    public List<Produto> getListaEstoque() {
+        return listaEstoque;
+    }
 
-
+    public void setListaEstoque(List<Produto> listaEstoque) {
+        this.listaEstoque = listaEstoque;
+    }
 }

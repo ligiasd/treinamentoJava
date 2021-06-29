@@ -75,9 +75,9 @@ public class Principal {
 
 
 
-        caixa.venderProduto(130,estoque);
-        caixa.venderProduto(430, estoque);
-        caixa.venderProduto(200,estoque);
+        //caixa.venderProduto(130,estoque);
+        //caixa.venderProduto(430, estoque);
+        //caixa.venderProduto(200,estoque);
 
         int opcao = 9;
         while (opcao != 0) {
@@ -85,7 +85,7 @@ public class Principal {
             System.out.println("0 - Finalizar compra");
             System.out.println("1 - Registrar venda de produto");
             System.out.println("2 - Cadastrar produto e adicionar no estoque");
-            System.out.println("3 - Listar produtos");
+            System.out.println("3 - Listar produtos por categoria produtos cadastrados");
             opcao = scanner.nextInt();
 
             switch (opcao) {
@@ -104,6 +104,8 @@ public class Principal {
 
         caixa.totalizarVenda();
 
+        //calcu
+
         totalEstoque = estoque.calcularTotal(); //exibir a quantidade
         System.out.println("Total de produtos em estoque: " + totalEstoque);
 
@@ -111,26 +113,37 @@ public class Principal {
 
 
     private static void listarProdutos(Estoque estoque) {
+
         // mostrar produtos em estque
 
+        System.out.println("----------------------------------");
+        System.out.println("Listar produtos por categoria produtos cadastrados: ");
+        System.out.println("Categoria Limpeza"); // --------------Agrupar por categoria-----------
 
-        //System.out.println("Categoria Limpeza"); // --------------Agrupar por categoria-----------
-        //for (Produto produto : listarProdutos().stream().filter(p -> p.getCategoria() == Categoria.limpeza).collect(Collectors.toList())){
-          //  System.out.println("1x " + produto.getNome() + "   R$" +produto.getPreco());
-        //}
+        for (Produto produto : estoque.getListaEstoque().stream().filter(p -> p.getCategoria() == Categoria.limpeza)
+                .collect(Collectors.toList()))
+        {
+            System.out.println("1x " + produto.getNome() + "   R$" +produto.getPreco());
+            ;
+        }
 
-        //System.out.println("-----------------");
+        System.out.println("----------------------------------");
+        System.out.println("Categoria Alimentos"); // --------------Agrupar por categoria-----------
+        for (Produto produto : estoque.getListaEstoque().stream().filter(p -> p.getCategoria() == Categoria.alimentos).collect(Collectors.toList())){ System.out.println("1x " + produto.getNome() + "   R$" +produto.getPreco());
 
-        //System.out.println("Categoria Alimentos"); // --------------Agrupar por categoria-----------
-        //for (Produto produto : listarProdutos().stream().filter(p -> p.getCategoria() == Categoria.alimentos).collect(Collectors.toList())){
-          //  System.out.println("1x " + produto.getNome() + "   R$" +produto.getPreco());
-        //}
+        }
 
-        //System.out.println("Categoria Alimentos"); // --------------Agrupar por categoria-----------
-        //for (Produto produto : listarProdutos().stream().filter(p -> p.getCategoria() == Categoria.alimentos).collect(Collectors.toList())){
-          //  System.out.println("1x " + produto.getNome() + "   R$" +produto.getPreco());
-        //}
+        System.out.println("----------------------------------");
+        System.out.println("Categoria Bebidas"); // --------------Agrupar por categoria-----------
+        for (Produto produto : estoque.getListaEstoque().stream().filter(p -> p.getCategoria() == Categoria.bebidas).collect(Collectors.toList())){
+            System.out.println("1x " + produto.getNome() + "   R$" +produto.getPreco());
+            System.out.println("----------------------------------");
+
+        }
+        System.out.println("----------------------------------");
     }
+
+
 
     private static void cadastrarProduto(Estoque estoque, Scanner scanner) {
         System.out.println("Qual o nome do produto?");
@@ -139,7 +152,7 @@ public class Principal {
         int codigo = scanner.nextInt();
         System.out.println("Qual o preco do produto?");
         float preco = scanner.nextFloat();
-        System.out.println("Cadastrar desconto para o produto?  0 - NÃO | 1 - SIM");
+        System.out.println("Cadastrar desconto para o produto - Programa Fidelidade ?  0 - NÃO | 1 - SIM");
         int promocao = scanner.nextInt();
         System.out.println("Qual categoria?  0 - Alimentos | 1 - Limpeza | 2 - Bebidas");
         int categoria = scanner.nextInt();
@@ -150,6 +163,8 @@ public class Principal {
         String[] dataVencimentoArray = dataVencimentoString.split("/");
         LocalDate dataVencimento = LocalDate.of(Integer.parseInt(dataVencimentoArray[2]), Integer.parseInt(dataVencimentoArray[1]), Integer.parseInt(dataVencimentoArray[0]));
 
+        //aplicando desconto promocional no produto
+
         Produto produto = new Produto(nome, codigo, preco, dataVencimento);
         if (promocao == 0){
             produto.setPromocao(Promocao.nao);
@@ -158,6 +173,8 @@ public class Principal {
             produto.setPromocao(Promocao.sim);
 
         }
+
+        //listar categoria do produto
 
         switch (categoria){
             case 0:
