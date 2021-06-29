@@ -16,6 +16,8 @@ public class Estoque {
         return listaEstoque.size();
     }
 
+
+
     //----------------------- CRUD ------------------------------
 
     //adicionar produto
@@ -75,7 +77,7 @@ public class Estoque {
             String novoNome,
             int codigo,
             float alterarPreco,
-            Date alterarValidade,
+            LocalDate alterarValidade,
             Promocao alterarPromocao,
             Categoria alterarCategoria
     ){

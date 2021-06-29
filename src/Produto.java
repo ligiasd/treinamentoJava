@@ -8,18 +8,32 @@ public class Produto {
     private int codigo;
     private float preco;
     private LocalDate validade;
+    private int quantidade;
 
     private Promocao promocao;
     private Categoria categoria;
 
-    public Produto(String nome, int codigo, float preco, LocalDate validade) {
+    public Produto(String nome, int codigo, float preco, int quantidade, LocalDate validade) {
         this.nome = nome;
         this.codigo = codigo;
         this.preco = preco;
         this.validade = validade;  //validar LocalDate com if/else com throw
+        this.quantidade = quantidade;
 
 
     }
+
+
+
+
+
+    //public int getQuantidade() {
+       // return quantidade;
+    //}
+
+    //public void setQuantidade(int quantidade) {
+        //this.quantidade = quantidade;
+    //}
     public Categoria getCategoria() {
         return categoria;
     }
