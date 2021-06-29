@@ -1,4 +1,5 @@
 public enum Categoria {
     alimentos,
-    limpeza
+    limpeza,
+    bebidas
 }

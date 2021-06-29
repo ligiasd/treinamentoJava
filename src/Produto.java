@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Produto {
@@ -6,11 +7,19 @@ public class Produto {
     private String nome;
     private int codigo;
     private float preco;
-    private Date validade;
+    private LocalDate validade;
 
     private Promocao promocao;
     private Categoria categoria;
 
+    public Produto(String nome, int codigo, float preco, LocalDate validade) {
+        this.nome = nome;
+        this.codigo = codigo;
+        this.preco = preco;
+        this.validade = validade;  //validar LocalDate com if/else com throw
+
+
+    }
     public Categoria getCategoria() {
         return categoria;
     }
@@ -31,12 +40,22 @@ public class Produto {
 
     }
     // acoes construtor metodo especial para transformar a classe de forma global, objetos à ser estanciados
-    public Produto(String nome, int codigo, float preco, Date validade) {
-        this.nome = nome;
-        this.codigo = codigo;
-        this.preco = preco;
-        this.validade = validade;
-    }
+
+
+    //public boolean validaDataDeVencimento(LocalDate dataDeValidade){
+        //hoje é dia 15
+        //LocalDate dataLimite = LocalDate.now().plusDays(16);
+
+        //produto
+        //f (dataDeValidade.isBefore(LocalDate.now())){
+          // return true;
+        //}else{
+            //return false;
+
+        //}
+
+
+    //}
 
     //getter e setter metodos especiais alt+insert
 
@@ -65,11 +84,15 @@ public class Produto {
         this.preco = preco;
     }
 
-    public Date getValidade() {
+    public void setValidade(LocalDate validade) {
+        this.validade = validade;
+    }
+
+    public LocalDate getValidade(LocalDate validade) {
         return validade;
     }
 
-    public void setValidade(Date validade) {
-        this.validade = validade;
+    public LocalDate getValidade() {
+        return validade;
     }
 }

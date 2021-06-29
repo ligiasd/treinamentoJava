@@ -1,5 +1,5 @@
 public enum Promocao {
     sim,
-    nao
+    nao,
 
 }
