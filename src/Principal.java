@@ -83,6 +83,7 @@ public class Principal {
             System.out.println("0 - Finalizar compra");
             System.out.println("1 - Registrar venda de produto");
             System.out.println("2 - Cadastrar produto e adicionar no estoque");
+
             System.out.println("3 - Listar produtos por categoria cadastradas em estoque");
             System.out.println("4 - Listar produtos em estoque ");
 
@@ -118,6 +119,8 @@ public class Principal {
 
     private static void listarProdutos(Estoque estoque) {
         // mostrar produtos em estque
+
+
 
         System.out.println("----------------------------------");
         System.out.println("Categoria Limpeza"); // --------------Agrupar por categoria-----------
