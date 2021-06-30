@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 public class Principal {
     public static void main(String[] args) {
+        //**********Instruções*********************
         //criar nova classe psvm +enter
         //regras de vencimento
         //regra 1 - não é possivel cadastrar produto vencido  ou para vencer 15 dias
@@ -13,37 +14,34 @@ public class Principal {
         // regra 3 - não vender produtos vencidos
         // regra 4 -   validar quantidade de produtos antes de vencer
 
-
-
-
-        Produto produtoArroz = new Produto();
-        produtoArroz.setNome("Arroz");
-        produtoArroz.setCodigo(430);
-        produtoArroz.setPreco(12.0f);
-        produtoArroz.setValidade(LocalDate.of(2021, 6, 29));
+        //Produto produtoArroz = new Produto();
+        //produtoArroz.setNome("Arroz");
+        //produtoArroz.setCodigo(430);
+        //produtoArroz.setPreco(12.0f);
+        //produtoArroz.setValidade(LocalDate.of(2021, 6, 29));
         //adicionando mais dois parametros---------------
-        produtoArroz.setPromocao(Promocao.nao);
-        produtoArroz.setCategoria(Categoria.alimentos);
+        //produtoArroz.setPromocao(Promocao.nao);
+        //produtoArroz.setCategoria(Categoria.alimentos);
 
-        Produto produtoDetergente = new Produto();
-        produtoDetergente.setNome("Detergente");
-        produtoDetergente.setCodigo(200);
-        produtoDetergente.setPreco(1.5f);
-        produtoDetergente.setValidade(LocalDate.of(2021, 6, 29));
+        //Produto produtoDetergente = new Produto();
+        //produtoDetergente.setNome("Detergente");
+        //produtoDetergente.setCodigo(200);
+        //produtoDetergente.setPreco(1.5f);
+        //produtoDetergente.setValidade(LocalDate.of(2021, 6, 29));
 
         //adicionando mais dois parametros---------------
-        produtoDetergente.setPromocao(Promocao.nao);
-        produtoDetergente.setCategoria(Categoria.limpeza);
+        //produtoDetergente.setPromocao(Promocao.nao);
+        //produtoDetergente.setCategoria(Categoria.limpeza);
 
 
-        Produto produtoBolacha = new Produto();
-        produtoBolacha.setNome("Bolacha");
-        produtoBolacha.setCodigo(130);
-        produtoBolacha.setPreco(3.20f);
-        produtoBolacha.setValidade(LocalDate.of(2021, 6, 29));
+        //Produto produtoBolacha = new Produto();
+        //produtoBolacha.setNome("Bolacha");
+        //produtoBolacha.setCodigo(130);
+        //produtoBolacha.setPreco(3.20f);
+        //produtoBolacha.setValidade(LocalDate.of(2021, 6, 29));
         //adicionando mais dois parametros---------------
-        produtoBolacha.setPromocao(Promocao.sim);
-        produtoBolacha.setCategoria(Categoria.alimentos);
+        //produtoBolacha.setPromocao(Promocao.sim);
+        //produtoBolacha.setCategoria(Categoria.alimentos);
 
         //inserir regra de validade classe Produto
 
@@ -86,6 +84,8 @@ public class Principal {
             System.out.println("1 - Registrar venda de produto");
             System.out.println("2 - Cadastrar produto e adicionar no estoque");
             System.out.println("3 - Listar produtos por categoria cadastradas em estoque");
+            System.out.println("4 - Listar produtos em estoque ");
+
             opcao = scanner.nextInt();
 
             switch (opcao) {
@@ -96,8 +96,12 @@ public class Principal {
                     cadastrarProduto(estoque, scanner);
                     break;
                 case 3:
-                    listarProdutos(estoque);
+                    estoque.listarProdutosEmEstoqueAgrupadoPorCategoria();
                     break;
+                case 4 :
+                    estoque.listarProdutosEmEstoque();
+                    break;
+
 
             }
         }
@@ -128,10 +132,13 @@ public class Principal {
 
         System.out.println("----------------------------------");
         System.out.println("Categoria Alimentos"); // --------------Agrupar por categoria-----------
-        for (Produto produto : estoque.getListaEstoque().stream().filter(p -> p.getCategoria() == Categoria.alimentos).collect(Collectors.toList())){
+        for
+
+        (Produto produto : estoque.getListaEstoque().stream().filter(p -> p.getCategoria() == Categoria.alimentos).collect(Collectors.toList())){
             System.out.println("Cód. produto:"+ produto.getCodigo() + " - "+ produto.getNome() + "   R$" +produto.getPreco());
 
         }
+
 
 
 
@@ -194,7 +201,7 @@ public class Principal {
         }
 
 
-        estoque.acrescentarProduto(produto);
+        estoque.acrescentarProduto(produto, quantidade);
 
 
 

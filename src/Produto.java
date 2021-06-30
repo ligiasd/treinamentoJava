@@ -72,8 +72,9 @@ public class Produto {
     //}
 
     //getter e setter metodos especiais alt+insert
-
-
+    public Produto getProduto() {
+        return this;
+    }
     public String getNome() {
         return nome;
     }
