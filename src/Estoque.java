@@ -122,13 +122,13 @@ public class Estoque {
         Map<Categoria, Long> result = listaEstoque.stream().collect(
                 Collectors.groupingBy(Produto::getCategoria, Collectors.counting()));
         for (Map.Entry itemMap : result.entrySet()) {
-
             String nomeCategoria = "Limpeza";
             //add demais opçoes de categoria
+
             if (Categoria.alimentos == itemMap.getKey()){
                 nomeCategoria = "Alimentos";
             }else if (Categoria.bebidas == itemMap.getKey()){
-                System.out.println("Bebidas");
+                nomeCategoria = "Bebidas";
             }
 
             System.out.println("______________________________");
@@ -143,9 +143,10 @@ public class Estoque {
                 Produto produto = (Produto) itemMapProdutos.getKey();
                 Long quantidadeProduto = (Long) itemMapProdutos.getValue();
 
-                System.out.println( "Cód. "+ produto.getCodigo() + " Quant. " + itemMapProdutos.getValue() + " Produto: " +" R$ "+ produto.getNome());
-                System.out.println("______________________________");
+                System.out.println( "Cód. "+ produto.getCodigo() + " Quant. " + itemMapProdutos.getValue() + " Produto: "+ produto.getNome());
+
             }
+
         }
     }
 }
